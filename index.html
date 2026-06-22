@@ -102,58 +102,112 @@
         </div>
       </div>
 
-      <!-- ===== INTERACTIVE AVATAR ===== -->
-      <div class="hero-avatar reveal-right" id="heroAvatar" aria-label="Interactive avatar of Vyom Vadodariya — AI/ML student, Hackathon Builder, Black Belt, Football Captain">
+      <!-- ===== COMMAND INTERFACE ===== -->
+      <div class="cmd-interface reveal-right" aria-label="Personal command interface visual">
 
-        <!-- Background glow aura -->
-        <div class="avatar-glow-bg" aria-hidden="true"></div>
+        <!-- Outer orbit ring -->
+        <div class="cmd-orbit-ring cmd-orbit-ring--outer" aria-hidden="true"></div>
+        <div class="cmd-orbit-ring cmd-orbit-ring--inner" aria-hidden="true"></div>
 
-        <!-- Avatar Image -->
-        <div class="avatar-figure-wrap" id="avatarFigureWrap">
-          <img
-            class="avatar-img"
-            src="avatar.png"
-            alt="Illustrated avatar of Vyom Vadodariya — young Indian AI/ML student"
-            draggable="false"
-          />
+        <!-- 4 Orbiting Module Cards -->
+
+        <!-- Module 1: AI/ML — top -->
+        <div class="cmd-module cmd-module--aiml" aria-label="AI and ML module">
+          <div class="cmd-module-icon">
+            <canvas class="mini-canvas" id="miniNet" width="44" height="44"></canvas>
+          </div>
+          <div class="cmd-module-text">
+            <span class="cmd-module-title">AI / ML</span>
+            <span class="cmd-module-sub">Machine Learning · Deep Learning</span>
+          </div>
         </div>
 
-
-        <!-- ── FLOATING ATTRIBUTE BADGES ── -->
-        <div class="avatar-badge avatar-badge--aiml" aria-label="AI and Machine Learning">
-          <span class="badge-icon" aria-hidden="true">🧠</span>
-          <span class="badge-text">AI / ML</span>
+        <!-- Module 2: Builder — right -->
+        <div class="cmd-module cmd-module--builder" aria-label="Builder module">
+          <div class="cmd-module-icon cmd-icon-builder">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/></svg>
+          </div>
+          <div class="cmd-module-text">
+            <span class="cmd-module-title">Builder</span>
+            <span class="cmd-module-sub">GitHub Projects · Hackathons</span>
+          </div>
         </div>
 
-        <div class="avatar-badge avatar-badge--hack" aria-label="Hackathon Builder">
-          <span class="badge-icon" aria-hidden="true">🏆</span>
-          <span class="badge-text">Hackathon Builder</span>
+        <!-- Module 3: Quant — bottom -->
+        <div class="cmd-module cmd-module--quant" aria-label="Quant module">
+          <div class="cmd-module-icon cmd-icon-quant">
+            <canvas class="mini-canvas" id="miniChart" width="44" height="44"></canvas>
+          </div>
+          <div class="cmd-module-text">
+            <span class="cmd-module-title">Quant / Future Tech</span>
+            <span class="cmd-module-sub">AI Engineer · Quant Finance</span>
+          </div>
         </div>
 
-        <div class="avatar-badge avatar-badge--karate" aria-label="Karate Black Belt">
-          <span class="badge-icon" aria-hidden="true">🥋</span>
-          <span class="badge-text">Black Belt</span>
+        <!-- Module 4: Leadership — left -->
+        <div class="cmd-module cmd-module--leader" aria-label="Leadership module">
+          <div class="cmd-module-icon cmd-icon-leader">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          </div>
+          <div class="cmd-module-text">
+            <span class="cmd-module-title">Leadership</span>
+            <span class="cmd-module-sub">Black Belt · Football Captain · IEEE</span>
+          </div>
         </div>
 
-        <div class="avatar-badge avatar-badge--ieee" aria-label="IEEE Member">
-          <span class="badge-icon" aria-hidden="true">⚡</span>
-          <span class="badge-text">IEEE Member</span>
+        <!-- Central Core -->
+        <div class="cmd-core" aria-hidden="true">
+          <div class="cmd-core-glow"></div>
+          <div class="cmd-core-glass">
+            <span class="cmd-core-label">VYOM</span>
+            <span class="cmd-core-sub">Command Interface</span>
+            <div class="cmd-core-dots">
+              <span class="cmd-core-dot"></span>
+              <span class="cmd-core-dot"></span>
+              <span class="cmd-core-dot"></span>
+            </div>
+          </div>
         </div>
 
-        <div class="avatar-badge avatar-badge--football" aria-label="State Football Captain">
-          <span class="badge-icon" aria-hidden="true">⚽</span>
-          <span class="badge-text">Football Captain</span>
-        </div>
-
-        <div class="avatar-badge avatar-badge--quant" aria-label="Quant Finance">
-          <span class="badge-icon" aria-hidden="true">📈</span>
-          <span class="badge-text">Quant Finance</span>
-        </div>
-
-        <!-- Floating code snippets -->
-        <span class="float-code float-code--1" aria-hidden="true">import torch</span>
-        <span class="float-code float-code--2" aria-hidden="true">model.fit(X)</span>
-        <span class="float-code float-code--3" aria-hidden="true">git push</span>
+        <!-- Connecting lines (drawn via CSS / SVG) -->
+        <svg class="cmd-connector-svg" viewBox="0 0 500 500" aria-hidden="true">
+          <!-- Top module line -->
+          <line class="cmd-line" x1="250" y1="250" x2="250" y2="90"/>
+          <!-- Right module line -->
+          <line class="cmd-line" x1="250" y1="250" x2="410" y2="250"/>
+          <!-- Bottom module line -->
+          <line class="cmd-line" x1="250" y1="250" x2="250" y2="410"/>
+          <!-- Left module line -->
+          <line class="cmd-line" x1="250" y1="250" x2="90" y2="250"/>
+          <!-- Animated signal dots -->
+          <circle class="cmd-signal" r="4" fill="#4a90d9">
+            <animateMotion dur="2.8s" repeatCount="indefinite" begin="0s">
+              <mpath href="#pathTop"/>
+            </animateMotion>
+          </circle>
+          <circle class="cmd-signal" r="4" fill="#4a90d9">
+            <animateMotion dur="3.2s" repeatCount="indefinite" begin="0.7s">
+              <mpath href="#pathRight"/>
+            </animateMotion>
+          </circle>
+          <circle class="cmd-signal" r="4" fill="#4a90d9">
+            <animateMotion dur="2.6s" repeatCount="indefinite" begin="1.4s">
+              <mpath href="#pathBottom"/>
+            </animateMotion>
+          </circle>
+          <circle class="cmd-signal" r="4" fill="#4a90d9">
+            <animateMotion dur="3s" repeatCount="indefinite" begin="2.1s">
+              <mpath href="#pathLeft"/>
+            </animateMotion>
+          </circle>
+          <!-- Motion paths -->
+          <defs>
+            <path id="pathTop"    d="M 250 250 L 250 90"/>
+            <path id="pathRight"  d="M 250 250 L 410 250"/>
+            <path id="pathBottom" d="M 250 250 L 250 410"/>
+            <path id="pathLeft"   d="M 250 250 L 90 250"/>
+          </defs>
+        </svg>
 
       </div>
     </div>
