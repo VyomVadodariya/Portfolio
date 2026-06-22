@@ -102,112 +102,224 @@
         </div>
       </div>
 
-      <!-- ===== COMMAND INTERFACE ===== -->
-      <div class="cmd-interface reveal-right" aria-label="Personal command interface visual">
+      <!-- ===== INTERACTIVE AVATAR ===== -->
+      <div class="hero-avatar reveal-right" id="heroAvatar" aria-label="Interactive avatar of Vyom Vadodariya — AI/ML student, Hackathon Builder, Black Belt, Football Captain">
 
-        <!-- Outer orbit ring -->
-        <div class="cmd-orbit-ring cmd-orbit-ring--outer" aria-hidden="true"></div>
-        <div class="cmd-orbit-ring cmd-orbit-ring--inner" aria-hidden="true"></div>
+        <!-- Background glow aura -->
+        <div class="avatar-glow-bg" aria-hidden="true"></div>
 
-        <!-- 4 Orbiting Module Cards -->
+        <!-- SVG Character -->
+        <div class="avatar-figure-wrap" id="avatarFigureWrap">
+          <svg class="avatar-svg" viewBox="0 0 300 510" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="skinGrad" cx="38%" cy="32%" r="68%">
+                <stop offset="0%" stop-color="#dfa060"/>
+                <stop offset="100%" stop-color="#b87030"/>
+              </radialGradient>
+              <radialGradient id="hoodyGrad" cx="32%" cy="22%" r="78%">
+                <stop offset="0%" stop-color="#2054a0"/>
+                <stop offset="100%" stop-color="#0c2550"/>
+              </radialGradient>
+              <radialGradient id="jeansGrad" cx="35%" cy="20%" r="70%">
+                <stop offset="0%" stop-color="#334c6e"/>
+                <stop offset="100%" stop-color="#1a2c45"/>
+              </radialGradient>
+              <clipPath id="clipEL">
+                <ellipse cx="121" cy="93" rx="13" ry="10.5"/>
+              </clipPath>
+              <clipPath id="clipER">
+                <ellipse cx="179" cy="93" rx="13" ry="10.5"/>
+              </clipPath>
+              <filter id="charDrop" x="-15%" y="-10%" width="130%" height="130%">
+                <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0c2550" flood-opacity="0.22"/>
+              </filter>
+              <filter id="softGlow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
 
-        <!-- Module 1: AI/ML — top -->
-        <div class="cmd-module cmd-module--aiml" aria-label="AI and ML module">
-          <div class="cmd-module-icon">
-            <canvas class="mini-canvas" id="miniNet" width="44" height="44"></canvas>
-          </div>
-          <div class="cmd-module-text">
-            <span class="cmd-module-title">AI / ML</span>
-            <span class="cmd-module-sub">Machine Learning · Deep Learning</span>
-          </div>
+            <!-- Ground shadow -->
+            <ellipse cx="150" cy="500" rx="75" ry="11" fill="rgba(74,144,217,0.13)"/>
+
+            <!-- ── SHOES ── -->
+            <path d="M80 463 Q62 467 58 478 L58 487 Q73 493 113 490 Q128 485 128 474 L117 463z" fill="#131320"/>
+            <path d="M63 479 Q86 475 113 475" stroke="white" stroke-width="0.9" stroke-opacity="0.12" fill="none" stroke-linecap="round"/>
+            <rect x="58" y="485" width="55" height="5" rx="2.5" fill="#1d1d30"/>
+            <path d="M182 463 L172 474 Q172 485 187 490 Q227 493 242 487 L242 478 Q238 467 220 463z" fill="#131320"/>
+            <path d="M187 475 Q214 475 237 479" stroke="white" stroke-width="0.9" stroke-opacity="0.12" fill="none" stroke-linecap="round"/>
+            <rect x="187" y="485" width="55" height="5" rx="2.5" fill="#1d1d30"/>
+
+            <!-- ── JEANS ── -->
+            <path d="M92 390 L80 463 L128 463 L136 418 L136 390z" fill="url(#jeansGrad)"/>
+            <path d="M164 390 L164 418 L172 463 L220 463 L208 390z" fill="url(#jeansGrad)"/>
+            <line x1="109" y1="390" x2="104" y2="463" stroke="#4a6080" stroke-width="1" opacity="0.5"/>
+            <line x1="191" y1="390" x2="196" y2="463" stroke="#4a6080" stroke-width="1" opacity="0.5"/>
+            <!-- knee highlight -->
+            <ellipse cx="110" cy="432" rx="14" ry="10" fill="#4a6080" opacity="0.18"/>
+            <ellipse cx="190" cy="432" rx="14" ry="10" fill="#4a6080" opacity="0.18"/>
+
+            <!-- ── BELT ── -->
+            <rect x="84" y="381" width="132" height="14" rx="4" fill="#0c0c14"/>
+            <rect x="141" y="381" width="18" height="14" rx="3" fill="#9a7c18"/>
+            <rect x="144" y="384" width="12" height="8" rx="1.5" fill="#c8aa30" opacity="0.65"/>
+
+            <!-- ── HOODIE BODY ── -->
+            <g filter="url(#charDrop)">
+              <path d="M60 222 Q66 204 98 196 L134 205 L150 199 L166 205 L202 196 Q234 204 240 222 L248 395 L52 395z" fill="url(#hoodyGrad)"/>
+            </g>
+            <!-- shading sides -->
+            <path d="M60 222 L52 395 L88 395 L92 265 L98 196 Q66 204 60 222z" fill="#081838" opacity="0.42"/>
+            <path d="M240 222 L248 395 L212 395 L208 265 L202 196 Q234 204 240 222z" fill="#081838" opacity="0.42"/>
+            <!-- center zip -->
+            <rect x="147" y="199" width="6" height="110" rx="3" fill="#091630" opacity="0.55"/>
+            <rect x="145" y="298" width="10" height="8" rx="2" fill="#5a9de0" opacity="0.85"/>
+            <!-- kangaroo pocket -->
+            <path d="M103 314 Q103 378 150 381 Q197 378 197 314 Q185 302 150 300 Q115 302 103 314z" fill="#081838" opacity="0.82"/>
+            <line x1="150" y1="300" x2="150" y2="381" stroke="#122040" stroke-width="1.5" opacity="0.55"/>
+
+            <!-- IEEE badge on chest -->
+            <rect x="158" y="242" width="42" height="26" rx="7" fill="#4a90d9" opacity="0.9"/>
+            <text x="179" y="259" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9.5" font-weight="800" fill="white" letter-spacing="0.5">IEEE</text>
+
+            <!-- ── LEFT ARM ── -->
+            <path d="M60 222 Q38 244 33 316 Q33 353 50 362 Q64 367 72 354 Q63 308 75 270 L98 196 Q66 204 60 222z" fill="url(#hoodyGrad)"/>
+            <ellipse cx="51" cy="358" rx="20" ry="8.5" fill="#1840780"/>
+            <!-- ── RIGHT ARM ── -->
+            <path d="M240 222 Q262 244 267 316 Q267 353 250 362 Q236 367 228 354 Q237 308 225 270 L202 196 Q234 204 240 222z" fill="url(#hoodyGrad)"/>
+            <ellipse cx="249" cy="358" rx="20" ry="8.5" fill="#183878"/>
+
+            <!-- ── HANDS ── -->
+            <!-- Left -->
+            <ellipse cx="51" cy="369" rx="18" ry="16" fill="url(#skinGrad)"/>
+            <path d="M35 363 Q31 353 36 349 Q43 345 47 352z" fill="#c48038"/>
+            <path d="M41 359 Q39 348 46 345 Q53 342 55 351z" fill="#c48038"/>
+            <path d="M51 357 Q51 346 58 344 Q65 343 65 352z" fill="#c48038"/>
+            <path d="M60 361 Q62 350 68 350 Q74 351 71 359z" fill="#c48038"/>
+            <path d="M36 370 Q28 367 27 360 Q28 352 36 356 L43 364z" fill="#c48038"/>
+            <!-- Right -->
+            <ellipse cx="249" cy="369" rx="18" ry="16" fill="url(#skinGrad)"/>
+            <path d="M265 363 Q269 353 264 349 Q257 345 253 352z" fill="#c48038"/>
+            <path d="M259 359 Q261 348 254 345 Q247 342 245 351z" fill="#c48038"/>
+            <path d="M249 357 Q249 346 242 344 Q235 343 235 352z" fill="#c48038"/>
+            <path d="M240 361 Q238 350 232 350 Q226 351 229 359z" fill="#c48038"/>
+            <path d="M264 370 Q272 367 273 360 Q272 352 264 356 L257 364z" fill="#c48038"/>
+
+            <!-- ── NECK ── -->
+            <rect x="132" y="167" width="36" height="40" rx="11" fill="url(#skinGrad)"/>
+            <path d="M132 190 L168 190 L165 207 L135 207z" fill="#a06030" opacity="0.18"/>
+
+            <!-- ── WHITE COLLAR visible above hoodie ── -->
+            <path d="M105 200 Q132 215 150 210 Q168 215 195 200 Q175 191 150 189 Q125 191 105 200z" fill="#e6f2fc"/>
+
+            <!-- ── EARS ── -->
+            <ellipse cx="82" cy="97" rx="13" ry="17" fill="url(#skinGrad)"/>
+            <ellipse cx="84" cy="97" rx="7" ry="11" fill="#a06030" opacity="0.28"/>
+            <ellipse cx="218" cy="97" rx="13" ry="17" fill="url(#skinGrad)"/>
+            <ellipse cx="216" cy="97" rx="7" ry="11" fill="#a06030" opacity="0.28"/>
+
+            <!-- ── FACE ── -->
+            <ellipse cx="150" cy="93" rx="70" ry="76" fill="url(#skinGrad)"/>
+            <!-- subtle face lighting -->
+            <ellipse cx="143" cy="68" rx="44" ry="32" fill="#e0a060" opacity="0.2"/>
+            <ellipse cx="150" cy="158" rx="34" ry="16" fill="#a06030" opacity="0.16"/>
+
+            <!-- ── EYEBROWS ── -->
+            <path d="M104 78 Q119 70 134 75" stroke="#180700" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M166 75 Q181 70 196 78" stroke="#180700" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+            <!-- ── EYES ── -->
+            <!-- sclera left -->
+            <ellipse cx="121" cy="93" rx="15.5" ry="12" fill="white"/>
+            <g clip-path="url(#clipEL)">
+              <g id="eyeL">
+                <circle cx="121" cy="93" r="8.5" fill="#2e1a0e"/>
+                <circle cx="121" cy="93" r="4.5" fill="#080402"/>
+                <circle cx="124.5" cy="90" r="2.8" fill="white" opacity="0.92"/>
+                <circle cx="118" cy="95" r="1.3" fill="white" opacity="0.38"/>
+              </g>
+            </g>
+            <!-- eyelid crease left -->
+            <path d="M105 93 Q121 83 137 93" fill="none" stroke="#9a6535" stroke-width="0.8" opacity="0.32"/>
+            <!-- sclera right -->
+            <ellipse cx="179" cy="93" rx="15.5" ry="12" fill="white"/>
+            <g clip-path="url(#clipER)">
+              <g id="eyeR">
+                <circle cx="179" cy="93" r="8.5" fill="#2e1a0e"/>
+                <circle cx="179" cy="93" r="4.5" fill="#080402"/>
+                <circle cx="182.5" cy="90" r="2.8" fill="white" opacity="0.92"/>
+                <circle cx="176" cy="95" r="1.3" fill="white" opacity="0.38"/>
+              </g>
+            </g>
+            <!-- eyelid crease right -->
+            <path d="M163 93 Q179 83 195 93" fill="none" stroke="#9a6535" stroke-width="0.8" opacity="0.32"/>
+
+            <!-- ── NOSE ── -->
+            <path d="M146 113 Q142 133 146 143 Q150 148 154 143 Q158 133 154 113" fill="#a06030" opacity="0.28"/>
+            <circle cx="142" cy="141" r="6" fill="#a06030" opacity="0.26"/>
+            <circle cx="158" cy="141" r="6" fill="#a06030" opacity="0.26"/>
+            <path d="M142 141 Q150 145 158 141" fill="none" stroke="#885025" stroke-width="1.6" stroke-linecap="round" opacity="0.38"/>
+
+            <!-- ── SMILE ── -->
+            <path d="M130 160 Q150 174 170 160" fill="none" stroke="#7a3810" stroke-width="3" stroke-linecap="round"/>
+            <path d="M134 160 Q150 169 166 160 Q150 166 134 160z" fill="#c06035" opacity="0.38"/>
+            <!-- dimples -->
+            <circle cx="127" cy="159" r="2.8" fill="#a06030" opacity="0.18"/>
+            <circle cx="173" cy="159" r="2.8" fill="#a06030" opacity="0.18"/>
+
+            <!-- ── HAIR ── -->
+            <!-- main hair silhouette -->
+            <path d="M82 102 Q80 46 110 22 Q128 8 150 6 Q172 8 190 22 Q220 46 218 102 Q208 59 196 39 Q178 22 150 20 Q122 22 104 39 Q92 59 82 102z" fill="#0d0600"/>
+            <!-- side hair -->
+            <path d="M82 102 Q75 75 80 52 Q87 34 99 22 L104 50 Q89 68 82 102z" fill="#0d0600"/>
+            <path d="M218 102 Q225 75 220 52 Q213 34 201 22 L196 50 Q211 68 218 102z" fill="#0d0600"/>
+            <!-- hair top volume & shape -->
+            <path d="M112 26 Q130 13 150 10 Q170 13 188 26 Q174 19 150 17 Q126 19 112 26z" fill="#1a0c00"/>
+            <!-- front fringe sweep -->
+            <path d="M106 34 Q120 19 140 16 Q132 28 126 42 Q116 36 106 34z" fill="#0d0600"/>
+            <path d="M194 34 Q180 19 160 16 Q168 28 174 42 Q184 36 194 34z" fill="#0d0600"/>
+            <!-- hair gloss -->
+            <path d="M146 14 Q158 10 170 14 Q162 11 150 11 Q140 11 132 14 Q138 10 146 14z" fill="#2e1800" opacity="0.55"/>
+            <!-- subtle texture -->
+            <path d="M122 22 Q140 14 158 12" stroke="#1a0a00" stroke-width="1.2" fill="none" opacity="0.25"/>
+          </svg>
         </div>
 
-        <!-- Module 2: Builder — right -->
-        <div class="cmd-module cmd-module--builder" aria-label="Builder module">
-          <div class="cmd-module-icon cmd-icon-builder">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/></svg>
-          </div>
-          <div class="cmd-module-text">
-            <span class="cmd-module-title">Builder</span>
-            <span class="cmd-module-sub">GitHub Projects · Hackathons</span>
-          </div>
+        <!-- ── FLOATING ATTRIBUTE BADGES ── -->
+        <div class="avatar-badge avatar-badge--aiml" aria-label="AI and Machine Learning">
+          <span class="badge-icon" aria-hidden="true">🧠</span>
+          <span class="badge-text">AI / ML</span>
         </div>
 
-        <!-- Module 3: Quant — bottom -->
-        <div class="cmd-module cmd-module--quant" aria-label="Quant module">
-          <div class="cmd-module-icon cmd-icon-quant">
-            <canvas class="mini-canvas" id="miniChart" width="44" height="44"></canvas>
-          </div>
-          <div class="cmd-module-text">
-            <span class="cmd-module-title">Quant / Future Tech</span>
-            <span class="cmd-module-sub">AI Engineer · Quant Finance</span>
-          </div>
+        <div class="avatar-badge avatar-badge--hack" aria-label="Hackathon Builder">
+          <span class="badge-icon" aria-hidden="true">🏆</span>
+          <span class="badge-text">Hackathon Builder</span>
         </div>
 
-        <!-- Module 4: Leadership — left -->
-        <div class="cmd-module cmd-module--leader" aria-label="Leadership module">
-          <div class="cmd-module-icon cmd-icon-leader">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
-          </div>
-          <div class="cmd-module-text">
-            <span class="cmd-module-title">Leadership</span>
-            <span class="cmd-module-sub">Black Belt · Football Captain · IEEE</span>
-          </div>
+        <div class="avatar-badge avatar-badge--karate" aria-label="Karate Black Belt">
+          <span class="badge-icon" aria-hidden="true">🥋</span>
+          <span class="badge-text">Black Belt</span>
         </div>
 
-        <!-- Central Core -->
-        <div class="cmd-core" aria-hidden="true">
-          <div class="cmd-core-glow"></div>
-          <div class="cmd-core-glass">
-            <span class="cmd-core-label">VYOM</span>
-            <span class="cmd-core-sub">Command Interface</span>
-            <div class="cmd-core-dots">
-              <span class="cmd-core-dot"></span>
-              <span class="cmd-core-dot"></span>
-              <span class="cmd-core-dot"></span>
-            </div>
-          </div>
+        <div class="avatar-badge avatar-badge--ieee" aria-label="IEEE Member">
+          <span class="badge-icon" aria-hidden="true">⚡</span>
+          <span class="badge-text">IEEE Member</span>
         </div>
 
-        <!-- Connecting lines (drawn via CSS / SVG) -->
-        <svg class="cmd-connector-svg" viewBox="0 0 500 500" aria-hidden="true">
-          <!-- Top module line -->
-          <line class="cmd-line" x1="250" y1="250" x2="250" y2="90"/>
-          <!-- Right module line -->
-          <line class="cmd-line" x1="250" y1="250" x2="410" y2="250"/>
-          <!-- Bottom module line -->
-          <line class="cmd-line" x1="250" y1="250" x2="250" y2="410"/>
-          <!-- Left module line -->
-          <line class="cmd-line" x1="250" y1="250" x2="90" y2="250"/>
-          <!-- Animated signal dots -->
-          <circle class="cmd-signal" r="4" fill="#4a90d9">
-            <animateMotion dur="2.8s" repeatCount="indefinite" begin="0s">
-              <mpath href="#pathTop"/>
-            </animateMotion>
-          </circle>
-          <circle class="cmd-signal" r="4" fill="#4a90d9">
-            <animateMotion dur="3.2s" repeatCount="indefinite" begin="0.7s">
-              <mpath href="#pathRight"/>
-            </animateMotion>
-          </circle>
-          <circle class="cmd-signal" r="4" fill="#4a90d9">
-            <animateMotion dur="2.6s" repeatCount="indefinite" begin="1.4s">
-              <mpath href="#pathBottom"/>
-            </animateMotion>
-          </circle>
-          <circle class="cmd-signal" r="4" fill="#4a90d9">
-            <animateMotion dur="3s" repeatCount="indefinite" begin="2.1s">
-              <mpath href="#pathLeft"/>
-            </animateMotion>
-          </circle>
-          <!-- Motion paths -->
-          <defs>
-            <path id="pathTop"    d="M 250 250 L 250 90"/>
-            <path id="pathRight"  d="M 250 250 L 410 250"/>
-            <path id="pathBottom" d="M 250 250 L 250 410"/>
-            <path id="pathLeft"   d="M 250 250 L 90 250"/>
-          </defs>
-        </svg>
+        <div class="avatar-badge avatar-badge--football" aria-label="State Football Captain">
+          <span class="badge-icon" aria-hidden="true">⚽</span>
+          <span class="badge-text">Football Captain</span>
+        </div>
+
+        <div class="avatar-badge avatar-badge--quant" aria-label="Quant Finance">
+          <span class="badge-icon" aria-hidden="true">📈</span>
+          <span class="badge-text">Quant Finance</span>
+        </div>
+
+        <!-- Floating code snippets -->
+        <span class="float-code float-code--1" aria-hidden="true">import torch</span>
+        <span class="float-code float-code--2" aria-hidden="true">model.fit(X)</span>
+        <span class="float-code float-code--3" aria-hidden="true">git push</span>
 
       </div>
     </div>

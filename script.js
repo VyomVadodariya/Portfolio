@@ -585,3 +585,110 @@ window.addEventListener('load', () => {
   window.scrollTo(0, 0);
   highlightActiveSection();
 });
+
+
+/* ──────────────────────────────────────────────
+   11. AVATAR — Eye tracking + subtle parallax
+──────────────────────────────────────────────── */
+(function initAvatarInteraction() {
+  const figureWrap = document.getElementById('avatarFigureWrap');
+  const eyeL       = document.getElementById('eyeL');
+  const eyeR       = document.getElementById('eyeR');
+  if (!figureWrap || !eyeL || !eyeR) return;
+
+  // Base eye positions in SVG coordinate space
+  const EYE_L = { x: 121, y: 93 };
+  const EYE_R = { x: 179, y: 93 };
+  const MAX_OFFSET = 3.8; // max iris travel in SVG units
+
+  // Current & target iris offsets (smooth lerp)
+  let curLX = 0, curLY = 0, curRX = 0, curRY = 0;
+  let tgtLX = 0, tgtLY = 0, tgtRX = 0, tgtRY = 0;
+
+  // Parallax tilt targets
+  let tiltX = 0, tiltY = 0;
+  let curTiltX = 0, curTiltY = 0;
+
+  let rafId = null;
+  let isHeroVisible = true;
+
+  // Detect if hero is in viewport
+  const heroSection = document.getElementById('home');
+  if (heroSection) {
+    const heroObs = new IntersectionObserver(entries => {
+      isHeroVisible = entries[0].isIntersecting;
+      if (isHeroVisible && !rafId) rafId = requestAnimationFrame(animate);
+    }, { threshold: 0.1 });
+    heroObs.observe(heroSection);
+  }
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isHeroVisible) return;
+
+    // ── Eye tracking ──
+    const svgEl = figureWrap.querySelector('.avatar-svg');
+    if (svgEl) {
+      const rect   = svgEl.getBoundingClientRect();
+      // Approximate eye-level: ~18% from top of SVG
+      const eyeCX  = rect.left + rect.width  * 0.5;
+      const eyeCY  = rect.top  + rect.height * 0.18;
+      const dx     = (e.clientX - eyeCX) / (window.innerWidth  * 0.4);
+      const dy     = (e.clientY - eyeCY) / (window.innerHeight * 0.4);
+      const clampX = Math.max(-1, Math.min(1, dx));
+      const clampY = Math.max(-1, Math.min(1, dy));
+      tgtLX = clampX * MAX_OFFSET;
+      tgtLY = clampY * MAX_OFFSET;
+      tgtRX = clampX * MAX_OFFSET;
+      tgtRY = clampY * MAX_OFFSET;
+    }
+
+    // ── Subtle 3-D tilt (only on desktop) ──
+    if (!window.matchMedia('(pointer: coarse)').matches) {
+      const cx  = window.innerWidth  / 2;
+      const cy  = window.innerHeight / 2;
+      tiltX = ((e.clientX - cx) / cx) * 4;   // ±4 deg
+      tiltY = ((e.clientY - cy) / cy) * 2.5; // ±2.5 deg
+    }
+  }, { passive: true });
+
+  function animate() {
+    if (!isHeroVisible) { rafId = null; return; }
+
+    const lerp = (a, b, t) => a + (b - a) * t;
+
+    // Lerp eye irises
+    curLX = lerp(curLX, tgtLX, 0.09);
+    curLY = lerp(curLY, tgtLY, 0.09);
+    curRX = lerp(curRX, tgtRX, 0.09);
+    curRY = lerp(curRY, tgtRY, 0.09);
+
+    eyeL.setAttribute('transform', `translate(${curLX.toFixed(3)},${curLY.toFixed(3)})`);
+    eyeR.setAttribute('transform', `translate(${curRX.toFixed(3)},${curRY.toFixed(3)})`);
+
+    // Lerp tilt (only if animation hasn't been paused by user interaction)
+    curTiltX = lerp(curTiltX, tiltX, 0.06);
+    curTiltY = lerp(curTiltY, tiltY, 0.06);
+    figureWrap.style.transform =
+      `perspective(900px) rotateY(${curTiltX.toFixed(2)}deg) rotateX(${(-curTiltY * 0.5).toFixed(2)}deg) translateY(var(--idle-y, 0px))`;
+
+    rafId = requestAnimationFrame(animate);
+  }
+
+  // Start loop
+  rafId = requestAnimationFrame(animate);
+
+  // Hover interaction — badges pulse on avatar hover
+  const avatarEl = document.getElementById('heroAvatar');
+  if (avatarEl) {
+    avatarEl.addEventListener('mouseenter', () => {
+      avatarEl.querySelectorAll('.avatar-badge').forEach((b, i) => {
+        b.style.transitionDelay = `${i * 40}ms`;
+      });
+    });
+    avatarEl.addEventListener('mouseleave', () => {
+      avatarEl.querySelectorAll('.avatar-badge').forEach(b => {
+        b.style.transitionDelay = '0ms';
+      });
+    });
+  }
+})();
