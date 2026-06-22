@@ -1765,11 +1765,15 @@ ul { list-style: none; }
   50%     { transform:translateY(-10px); }
 }
 
-.avatar-svg {
-  width: 300px;
+.avatar-img {
+  width: 340px;
   height: auto;
   display: block;
-  filter: drop-shadow(0 24px 44px rgba(12,37,80,0.20));
+  object-fit: contain;
+  filter: drop-shadow(0 24px 44px rgba(12,37,80,0.18));
+  mix-blend-mode: multiply; /* removes white background cleanly */
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* Floating badges */
@@ -1845,7 +1849,7 @@ ul { list-style: none; }
 /* Responsive */
 @media (max-width: 900px) {
   .hero-avatar { width:340px; height:420px; order:-1; align-self:center; }
-  .avatar-svg  { width:210px; }
+  .avatar-img  { width:240px; }
   .avatar-badge{ padding:5px 10px 5px 8px; font-size:0.67rem; }
   .avatar-badge--aiml    { right:-2%;  }
   .avatar-badge--hack    { left:-8%;   }
@@ -1858,7 +1862,7 @@ ul { list-style: none; }
 
 @media (max-width: 560px) {
   .hero-avatar { width:270px; height:340px; }
-  .avatar-svg  { width:180px; }
+  .avatar-img  { width:190px; }
   .avatar-badge{ padding:4px 9px 4px 7px; font-size:0.62rem; gap:5px; }
   .avatar-badge--aiml    { top:2%;    right:-2%;  }
   .avatar-badge--hack    { top:15%;   left:-5%;   }
