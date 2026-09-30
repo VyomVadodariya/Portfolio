@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* ─── Design tokens ─────────────────────────────────── */
+:root {
+  --background:    #08090B;
+  --surface-1:     #0F1115;
+  --surface-2:     #151820;
+  --foreground:    #F8F9FA;
+  --muted:         #9CA3AF;
+  --accent:        #3B82F6;
+  --border:        #1F2937;
+
+  /* Font families */
+  --font-space:    'Space Grotesk', sans-serif;
+  --font-inter:    'Inter', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+}
+
+/* ─── Reset & base ──────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* ─── Custom scrollbar ──────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ─── Selection ─────────────────────────────────────── */
+::selection { background: rgba(59, 130, 246, 0.25); color: var(--foreground); }
+
+/* ─── Custom cursor ─────────────────────────────────── */
+@media (pointer: fine) {
+  html { cursor: none; }
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 24px; height: 24px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, border-color 0.2s, background 0.15s;
+  mix-blend-mode: screen;
+}
+
+.cursor-ring.cursor-hover {
+  width: 48px; height: 48px;
+  background: rgba(59,130,246,0.08);
+  border-color: var(--accent);
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 4px; height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s;
+}
+
+/* ─── Ink trail canvas ──────────────────────────────── */
+#ink-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9990;
+  opacity: 0.4;
+}
+
+/* ─── Section base ──────────────────────────────────── */
+.section-chapter {
+  padding: 80px 0 64px;
+  position: relative;
+}
+
+/* ─── Reveal animations ─────────────────────────────── */
+.reveal-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ─── Reduced motion ────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .cursor-ring, .cursor-dot, #ink-canvas { display: none; }
+  html { cursor: auto; }
+  .reveal-fade, .reveal-left, .reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ─── Touch devices — disable custom cursor ─────────── */
+@media (pointer: coarse) {
+  html { cursor: auto; }
+  .cursor-ring, .cursor-dot, #ink-canvas { display: none !important; }
+}
+
+/* ─── Mobile ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  html { cursor: auto; }
+  .cursor-ring, .cursor-dot, #ink-canvas { display: none; }
+  .section-chapter { padding: 56px 0 40px; }
+}
