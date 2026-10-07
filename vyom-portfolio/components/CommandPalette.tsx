@@ -43,7 +43,7 @@ export function CommandPalette() {
     { label: "Capabilities", id: "skills", icon: <Terminal size={14} />, type: "scroll" },
     { label: "Contact", id: "contact", icon: <Terminal size={14} />, type: "scroll" },
     { label: "GitHub", href: "https://github.com/VyomVadodariya", icon: <GithubIcon size={14} />, type: "link" },
-    { label: "Resume", href: "/resume.pdf", icon: <FileText size={14} />, type: "link" },
+    { label: "Resume", href: "/Portfolio/resume.pdf", icon: <FileText size={14} />, type: "link" },
     { label: "Email", href: "mailto:vyomvadodariya2@gmail.com", icon: <Mail size={14} />, type: "link" },
   ];
 
@@ -91,7 +91,7 @@ export function CommandPalette() {
               No results found.
             </div>
           ) : (
-            filtered.map((cmd, idx) => (
+            filtered.map((cmd) => (
               <button
                 key={cmd.label}
                 className="w-full flex items-center justify-between px-3 py-3 rounded-lg text-left transition-colors hover:bg-surface-2 focus:bg-surface-2 focus:outline-none group"

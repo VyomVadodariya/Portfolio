@@ -41,7 +41,7 @@ export function Contact() {
       icon: <LinkedinIcon size={18} />,
       label: "LINKEDIN",
       handle: "Connect",
-      href: "https://www.linkedin.com/in/vyomvadodariya/",
+      href: "https://www.linkedin.com/in/vyom-vadodariya-09b721333/",
     },
     {
       icon: <Mail size={18} />,
@@ -53,7 +53,7 @@ export function Contact() {
       icon: <FileText size={18} />,
       label: "RESUME",
       handle: "Download PDF",
-      href: "/resume.pdf",
+      href: "/Portfolio/resume.pdf",
       download: true,
     },
   ];

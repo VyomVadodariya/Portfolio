@@ -24,7 +24,7 @@ export function Footer() {
             GitHub
           </a>
           <a
-            href="https://www.linkedin.com/in/vyomvadodariya/"
+            href="https://www.linkedin.com/in/vyom-vadodariya-09b721333/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono text-[10px] uppercase tracking-widest text-muted hover:text-accent transition-colors"

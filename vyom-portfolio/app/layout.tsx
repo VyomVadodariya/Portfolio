@@ -26,6 +26,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vyomvadodariya.github.io/Portfolio'),
   title: "VYOM VADODARIYA — AI/ML & Systems Engineering",
   description:
     "Portfolio of Vyom Vadodariya. Building intelligent systems, researching AI/ML, and exploring quantitative technology.",
